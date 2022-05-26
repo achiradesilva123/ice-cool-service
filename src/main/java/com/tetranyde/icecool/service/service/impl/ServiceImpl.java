@@ -38,7 +38,6 @@ public class ServiceImpl implements Service {
 
             }else return new ResponseEntity<>((new FailedResponseDto(false,"200","Invalid Order!!")), HttpStatus.OK);
 
-
        }catch (Exception e){
            throw  e;
        }
@@ -93,7 +92,7 @@ public class ServiceImpl implements Service {
         }
 
         if(!checkAvailablility(requestDTO.getFlavorsType(),availability))
-            return new ResponseEntity<>((new FailedResponseDto(false,"200","Filling Doesnt support for Flavor")), HttpStatus.OK);
+            return new ResponseEntity<>((new FailedResponseDto(false,"200","Filling Doesn't support for Flavor")), HttpStatus.OK);
 
         OrderResponseDto orderResponseDto = new OrderResponseDto(requestDTO.getFlavorsType().getValue(),fillingPrice,requestDTO.getConeType().getPrice());
         orderResponseDto.setTotal((requestDTO.getFlavorsType().getValue()+fillingPrice+requestDTO.getConeType().getPrice()));
