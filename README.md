@@ -15,7 +15,7 @@
 
 --here postman curl--
 
-curl --location --request POST 'http://localhost:8080/ap1/v1/order' \
+curl --location --request POST 'http://localhost:8080/api/v1/order' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "flavorsType" : "Raspberry_Slushy",
