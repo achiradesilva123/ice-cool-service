@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.tetranyde.icecool.service.constant.ResponseCode.OPERATION_SUCCESS;
 import static com.tetranyde.icecool.service.enums.FillingType.*;
 
 @org.springframework.stereotype.Service
@@ -32,7 +33,7 @@ public class ServiceImpl implements Service {
                 }else{
                     OrderResponseDto orderResponseDto = new OrderResponseDto(requestDTO.getFlavorsType().getValue(),requestDTO.getConeType().getPrice());
                     orderResponseDto.setTotal((requestDTO.getFlavorsType().getValue()+requestDTO.getConeType().getPrice()));
-                    return new ResponseEntity<>((new SuccessResponseDto(0,orderResponseDto,true)), HttpStatus.OK);
+                    return new ResponseEntity<>((new SuccessResponseDto(OPERATION_SUCCESS,orderResponseDto,true)), HttpStatus.OK);
                 }
 
             }else return new ResponseEntity<>((new FailedResponseDto(false,"200","Invalid Order!!")), HttpStatus.OK);
@@ -96,7 +97,7 @@ public class ServiceImpl implements Service {
 
         OrderResponseDto orderResponseDto = new OrderResponseDto(requestDTO.getFlavorsType().getValue(),fillingPrice,requestDTO.getConeType().getPrice());
         orderResponseDto.setTotal((requestDTO.getFlavorsType().getValue()+fillingPrice+requestDTO.getConeType().getPrice()));
-        return new ResponseEntity<>((new SuccessResponseDto(0,orderResponseDto,true)), HttpStatus.OK);
+        return new ResponseEntity<>((new SuccessResponseDto(OPERATION_SUCCESS,orderResponseDto,true)), HttpStatus.OK);
     }
 
 

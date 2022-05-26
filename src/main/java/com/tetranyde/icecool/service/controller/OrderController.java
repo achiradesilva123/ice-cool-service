@@ -1,6 +1,7 @@
 package com.tetranyde.icecool.service.controller;
 
 
+import com.tetranyde.icecool.service.constant.ResponseCode;
 import com.tetranyde.icecool.service.dto.request.OrderRequestDTO;
 import com.tetranyde.icecool.service.dto.response.SuccessResponseDto;
 import com.tetranyde.icecool.service.service.Service;
@@ -10,9 +11,11 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import static com.tetranyde.icecool.service.constant.ResponseCode.*;
+
 @RestController
 @CrossOrigin
-@RequestMapping("ap1/v1/order")
+@RequestMapping("api/v1/order")
 public class OrderController {
     @Autowired
     private Service service;
@@ -24,7 +27,7 @@ public class OrderController {
 
     @GetMapping
     public ResponseEntity Test(){
-      return new ResponseEntity<>((new SuccessResponseDto(0,"Cannot Save Data Due To Missing Fields !!!",true)), HttpStatus.OK);
+      return new ResponseEntity<>((new SuccessResponseDto(OPERATION_SUCCESS,"Testing..!",true)), HttpStatus.OK);
     }
 
 }
